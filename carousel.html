@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./carousal.css">
+</head>
+<body>
+    <audio id="birthday-audio" autoplay loop muted>
+        <source src="./hpbdayjazz.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <a class="go-back-button" href="./index.html">cs</a>
+<section class="page">
+    
+    <div class="content">
+        <div class="carousel">
+            <input type="radio" id="carousel-1" name="carousel" checked autofocus>
+            <input type="radio" id="carousel-2" name="carousel">
+            <input type="radio" id="carousel-3" name="carousel">
+
+            <div class="slide slide-1"></div>
+            <div class="slide slide-2"></div>
+            <div class="slide slide-3"></div>
+            <div class="slide slide-4"></div>
+
+            <label for="carousel-3" class="control control-1 prev"><span>&#10554;</span></label>
+            <label for="carousel-2" class="control control-1 next"><span>&#10556;</span></label>
+            <label for="carousel-1" class="control control-2 prev"><span>&#10554;</span></label>
+            <label for="carousel-3" class="control control-2 next"><span>&#10556;</span></label>
+            <label for="carousel-2" class="control control-3 prev"><span>&#10554;</span></label>
+            <label for="carousel-1" class="control control-3 next"><span>&#10556;</span></label>
+
+            <div class="navigation">
+                <label for="carousel-1" class="radio-btn radio-btn-1"></label>
+                <label for="carousel-2" class="radio-btn radio-btn-2"></label>
+                <label for="carousel-3" class="radio-btn radio-btn-3"></label>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    window.onload = function() {
+    const audio = document.getElementById("birthday-audio");
+    audio.muted = false;  // Unmute the audio
+    audio.play();         // Start playing the audio
+};
+</script>
+</body>
+</html>
