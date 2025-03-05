@@ -1,18 +1,29 @@
 
-window.onload = function() {
-    // Get the audio elements
-    const birthdayAudio = document.getElementById('birthday-audio');
-    const fireworksAudio = document.getElementById('fireworks-audio');
-    
-    // Unmute the birthday audio and start playing
-    birthdayAudio.muted = false;
-    birthdayAudio.play();
 
-    // Set a lower volume for the fireworks audio (e.g., 0.2)
+
+
+
+// Simulate a click on the hidden button after the page has loaded
+window.onload = function() {
+    const hiddenButton = document.getElementById("hidden-play-button");
+    hiddenButton.click();
+}
+
+document.body.addEventListener("click", function() {
+    const birthdayAudio = document.getElementById("birthday-audio");
+    const fireworksAudio = document.getElementById("fireworks-audio");
+
+    // Unmute and play audio after click/touch
+    birthdayAudio.muted = false;
     fireworksAudio.muted = false;
-    fireworksAudio.play();
-    fireworksAudio.volume = 0.2; // Lower volume for fireworks
-};
+
+    // Start playing both audios
+    birthdayAudio.play().catch(error => console.log("Error playing birthday audio:", error));
+    fireworksAudio.play().catch(error => console.log("Error playing fireworks audio:", error));
+});
+
+// You can also trigger the click from other places like a specific event if needed
+
 
 // helper functions
 const PI2 = Math.PI * 2;

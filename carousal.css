@@ -8,15 +8,11 @@ html {
     font-size: 62.5%;
 }
 
-body {
-    font-family: Lato, sans-serif;
-    font-size: 1.6rem;
-}
 
 .page {
-    width: 95vw;
-    height: 100vh;
-    padding: 2rem;
+    width: 99vw;
+    height: 96vh;
+    /* padding: 2rem; */
     margin: 0 auto;
 }
 
@@ -30,125 +26,98 @@ body {
     height: 95%;
 }
 
-.carousel {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("./floral-bg.jpg");
+    flex-direction: column;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+
+  
+  .carousel-container {
+    position: relative;
+    width: 100vw;  /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    overflow: hidden;
+  }
+  
+  .carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
     width: 100%;
     height: 100%;
-    display: flex;
-    overflow: hidden;
-    position: relative;
-
-    input[type="radio"] {
-        position: absolute;
-        display: none;
+  }
+  
+  .carousel-slide {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;  /* Ensure images cover the entire container without distortion */
+  }
+  
+  button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+  .prev {
+    left: 10px;
+  }
+  
+  .next {
+    right: 10px;
+  }
+  
+  button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .counter {
+    position: absolute;
+    bottom: 64px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: white;
+    z-index: 10;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .carousel-container {
+      width: 100vw;
+      height: 100vh;
     }
-
-    .slide {
-        width: 100%;
-        height: 100%;
-        flex-shrink: 0;
-        opacity: 80%;
-        transition: ease-in-out 0.6s;
+  
+    .carousel-slide {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;  /* Make sure the images cover the whole area without distortion */
     }
-
-    .slide-1 {
-        background: url("./images/IMG_20230715_115412.jpg") no-repeat center center;
-        background-size: cover;
-        width: 100%;  
-        height: 100vh; 
-    }
-
-    .slide-2 {
-        background: url("./images/DJI_20231125123456_0064_D.JPG") no-repeat center center;
-        background-size: cover;
-          width: 100%;  
-    }
-
-    .slide-3 {
-        background: url("./images/IMG_20230709_183615.jpg") no-repeat center center;
-        background-size: cover; 
-        width: 100%;  
-        height: 100vh; 
-
-    }
-    .slide-4 {
-        background: url("./images/IMG_20230727_103552.jpg") no-repeat center center;
-        background-size: cover;
-                height: 100vh; 
-
-    }
-
-    .control {
-        width: 6rem;
-        height: 6rem;
-        display: none;
-        clip-path: circle(50% at 50% 50%);
-        background-color: rgba(0, 0, 0, 0.26);
-        color: #fff;
-        font-size: 5rem;
-        text-align: center;
-        cursor: pointer;
-
-        position: absolute;
-        top: 50%;
-    }
-
-    .next {
-        right: 0;
-        transform: translate(-20%, -50%);
-    }
-
-    .prev {
-        transform: translate(20%, -50%);
-    }
-
-    input:nth-of-type(1):checked ~ .control-1,
-    input:nth-of-type(2):checked ~ .control-2,
-    input:nth-of-type(3):checked ~ .control-3 {
-        display: block;
-
-    }
-
-    input:nth-of-type(1):checked ~ .navigation .radio-btn-1,
-    input:nth-of-type(2):checked ~ .navigation .radio-btn-2,
-    input:nth-of-type(3):checked ~ .navigation .radio-btn-3 {
-        background-color: #fff;
-    }
-
-    input:nth-of-type(1):checked ~ .slide {
-        transform: translateX(0);
-    }
-
-    input:nth-of-type(2):checked ~ .slide {
-        transform: translateX(-100%);
-    }
-
-    input:nth-of-type(3):checked ~ .slide {
-        transform: translateX(-200%);
-    }
-
-    .navigation {
-        position: absolute;
-        width: 90px;
-        height: 20px;
-
-        bottom: 4%;
-        left: 50%;
-        transform: translateX(-50%);
-
-        display: flex;
-        justify-content: space-between;
-
-        .radio-btn {
-            cursor: pointer;
-            width: 25px;
-            height: 25px;
-            background-color: rgba(0, 0, 0, 0.26);;
-            display: block;
-            border-radius: 50%;
-            border: 0.4rem solid rgba(255, 255, 255, 0.9);
-        }
-    }
-}
+  }
+  
 
 
   
@@ -175,13 +144,17 @@ body {
   .go-back-button {
     background-color: violet;
     color: white;
-    padding: 15px 25px; /* Adjust padding for the arrow */
-    font-size: 30px; /* Larger font size for the arrow */
+    padding: 15px 25px;
+    font-size: 30px;
     border: none;
-    border-radius: 50%;
+    border-radius: 40px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.3sease, transform 0.3sease;
     margin: 10px;
+    left: 42%;
+    position: absolute;
+    top: 32px;
+    text-decoration: none;
   }
   
   /* Hover Effect for Go Back Button */
