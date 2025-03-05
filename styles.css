@@ -96,7 +96,6 @@ canvas {
   }
 
   .holder {
-    margin: 12rem auto 0;
     width: 150px;
     height: 400px;
     position: absolute;
@@ -110,9 +109,9 @@ canvas {
   
   .candle {
     bottom: 0;
-    left: 38px;
-    width: 70px;
-    height: 170px;
+    left: 40px;
+    width: 47px;
+    height: 121px;
 
     border-radius: 150px / 40px;
     box-shadow: inset 20px -30px 50px 0 rgba(0, 0, 0, 0.4), inset -20px 0 50px 0 rgba(0, 0, 0, 0.4);
