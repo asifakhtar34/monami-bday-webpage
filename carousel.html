@@ -35,6 +35,11 @@
     pianoaudio.muted = false;  // Unmute the audio
     pianoaudio.play();  
 };
+document.body.addEventListener("touchstart", function() {
+    const audio = document.getElementById("birthday-audio-piano");
+    audio.muted = false;  // Unmute the audio
+    audio.play();
+});
 document.body.addEventListener("click", function() {
     const audio = document.getElementById("birthday-audio-piano");
     audio.muted = false;  // Unmute the audio
